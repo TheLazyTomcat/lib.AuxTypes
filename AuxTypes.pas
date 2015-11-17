@@ -10,9 +10,9 @@
 
   Auxiliary types
 
-  ©František Milt 2015-10-30
+  ©František Milt 2015-11-14
 
-  Version 1.0
+  Version 1.0.1
 
 ===============================================================================}
 unit AuxTypes;
@@ -46,7 +46,7 @@ type
 {$IFEND}
   PInt32 = ^Int32;        PUInt32 = ^UInt32;
 
-{$IF declared(CompilerVersion) and not defined(FPC)}
+{$IF (defined(DCC) or declared(CompilerVersion)) and not defined(FPC)}
   // assumes Delphi (DCC symbol is not defined in older Delphi than XE2)
   {$IF (CompilerVersion <= 17)}
   UInt64 = Int64;   
