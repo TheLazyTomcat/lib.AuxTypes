@@ -10,9 +10,9 @@
 
   Auxiliary types
 
-  ©František Milt 2015-11-14
+  ©František Milt 2015-12-13
 
-  Version 1.0.1
+  Version 1.0.2
 
 ===============================================================================}
 unit AuxTypes;
@@ -109,7 +109,7 @@ type
   PUnicodeString = ^UnicodeString;
 
 {$IF not declared(UTF8Char)}
-  UTF8Char = AnsiChar;
+  UTF8Char = type AnsiChar;
 {$IFEND}
   PUTF8Char = ^UTF8Char;
 
