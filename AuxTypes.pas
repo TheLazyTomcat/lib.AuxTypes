@@ -10,9 +10,9 @@
 
   Auxiliary types
 
-  ©František Milt 2015-12-13
+  ©František Milt 2016-01-05
 
-  Version 1.0.2
+  Version 1.0.3
 
 ===============================================================================}
 unit AuxTypes;
@@ -70,12 +70,14 @@ type
 {$ELSE}
   {$MESSAGE FATAL 'Unsupported size of pointer type'}
 {$IFEND}
+  PPtrInt  = ^PtrInt;
+  PPtrUInt = ^PtrUInt;
 
-  TStrSize = Int32;
-  TMemSize = PtrUInt;
+  TStrSize = Int32;       PStrSize = ^TStrSize;
+  TMemSize = PtrUInt;     PMemSize = ^TMemSize;
 
-  NativeInt  = PtrInt;
-  NativeUInt = PtrUInt;
+  NativeInt  = PtrInt;    PNativeInt  = ^NativeInt;
+  NativeUInt = PtrUInt;   PNativeUInt = ^NativeUInt;
 
 //== Floats ====================================================================
 
