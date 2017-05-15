@@ -10,9 +10,9 @@
 
   Auxiliary types
 
-  ©František Milt 2016-07-30
+  ©František Milt 2017-05-15
 
-  Version 1.0.4
+  Version 1.0.5
 
 ===============================================================================}
 unit AuxTypes;
@@ -87,15 +87,19 @@ type
 
 //== Floats ====================================================================
 
+  // half precision floating point numbers; cannot be used in arithmetics
+  Half    = type UInt16;    PHalf    = ^Half;
+  Float16 = Half;           PFloat16 = ^Float16;
+
 {$IF (SizeOf(Single) <> 4)}
   {$MESSAGE FATAL 'Wrong size of 32bit float'}
 {$IFEND}
-  Float32 = Single;     PFloat32 = ^Float32;
+  Float32 = Single;         PFloat32 = ^Float32;
 
 {$IF (SizeOf(Double) <> 8)}
   {$MESSAGE FATAL 'Wrong size of 64bit float'}
 {$IFEND}
-  Float64 = Double;     PFloat64 = ^Float64;
+  Float64 = Double;         PFloat64 = ^Float64;
 
 {$IF SizeOf(Extended) = 10}
   Float80 = Extended;
