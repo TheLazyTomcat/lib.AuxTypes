@@ -89,7 +89,7 @@ type
 
   // half precision floating point numbers
   // only for I/O operations, cannot be used in arithmetics
-  Half  = packed array[0..1] of Byte;         PHalf = ^Half;
+  Half  = packed array[0..1] of UInt8;        PHalf = ^Half;
 
 {$IF (SizeOf(Half) <> 2)}
   {$MESSAGE FATAL 'Wrong size of 16bit float'}
