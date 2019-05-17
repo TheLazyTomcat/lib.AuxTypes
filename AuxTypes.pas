@@ -10,9 +10,24 @@
 
   Auxiliary types
 
+    Some types (eg. integers of defined size) that are not guaranteed to be
+    declared in all compilers.
+
+  version 1.0.7
+
   ©František Milt 2017-09-25
 
-  Version 1.0.7
+  Contacts:
+    František Milt: frantisek.milt@gmail.com
+
+  Support:
+    If you find this code useful, please consider supporting the author by
+    making a small donation using following link(s):
+
+      https://www.paypal.me/FMilt
+
+  Dependencies:
+    none
 
 ===============================================================================}
 unit AuxTypes;
