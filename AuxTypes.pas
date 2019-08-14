@@ -21,8 +21,8 @@
     František Milt: frantisek.milt@gmail.com
 
   Support:
-    If you find this code useful, please consider supporting the author by
-    making a small donation using following link(s):
+    If you find this code useful, please consider supporting its author(s) by
+    making a small donation using the following link(s):
 
       https://www.paypal.me/FMilt
 
