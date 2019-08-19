@@ -13,9 +13,9 @@
     Some types (eg. integers of defined size) that are not guaranteed to be
     declared in all compilers.
 
-  version 1.0.7
+  version 1.0.7 (2018-04-04)
 
-  Last changed 2019-08-15  
+  Last change 2019-08-19
 
   ©2015-2019 František Milt
 
@@ -27,6 +27,11 @@
     making a small donation using the following link(s):
 
       https://www.paypal.me/FMilt
+
+  Changelog:
+    For detailed changelog and history please refer to this git repository:
+
+      github.com/TheLazyTomcat/Lib.AuxTypes
 
   Dependencies:
     none
