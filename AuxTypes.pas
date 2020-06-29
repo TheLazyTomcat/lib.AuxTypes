@@ -13,9 +13,9 @@
     Some types (eg. integers of defined size) that are not guaranteed to be
     declared in all compilers.
 
-  version 1.0.8 (2020-03-09)
+  version 1.0.9 (2020-06-29)
 
-  Last change 2020-03-09
+  Last change 2020-06-29
 
   ©2015-2020 František Milt
 
@@ -82,8 +82,14 @@ type
   PInt32  = ^Int32;       PUInt32  = ^UInt32;
   PPInt32 = ^PInt32;      PPUInt32 = ^PUInt32;
 
+  DoubleWord = UInt32;    PDoubleWord = ^DoubleWord;  PPDoubleWord = ^PDoubleWord;
+
+  DWord = UInt32;         PDWord = ^DWord;            PPDWord = ^PDWord;
+
 {$IFDEF UInt64_NotNative}
   UInt64 = Int64;
+{$ELSE}
+  UInt64 = System.UInt64;
 {$ENDIF}
 {$IF (SizeOf(Int64) <> 8) or (SizeOf(UInt64) <> 8)}
   {$MESSAGE FATAL 'Wrong size of 64bit integers'}
@@ -91,7 +97,9 @@ type
   PUInt64  = ^UInt64;
   PPUInt64 = ^PUInt64;
 
-  QuadWord  = UInt64;     PQuadWord = ^QuadWord;      PPQuadWord = ^PQuadWord;
+  QuadWord = UInt64;      PQuadWord = ^QuadWord;      PPQuadWord = ^PQuadWord;
+  
+  QWord = UInt64;         PQWord = ^QWord;            PPQWord = ^PQWord;
 
 //-- Half-byte -----------------------------------------------------------------
 
