@@ -15,7 +15,7 @@
 
   version 1.0.9 (2020-06-29)
 
-  Last change 2020-06-29
+  Last change 2020-08-02
 
   ©2015-2020 František Milt
 
@@ -41,6 +41,8 @@ unit AuxTypes;
 
 interface
 {$ENDIF Included}
+
+{$H+}
 
 {$UNDEF UInt64_NotNative}
 {$IF (Defined(DCC) or Declared(CompilerVersion)) and not Defined(FPC)}
