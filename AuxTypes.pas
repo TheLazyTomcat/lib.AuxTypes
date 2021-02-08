@@ -13,11 +13,11 @@
     Some types (eg. integers of defined size) that are not guaranteed to be
     declared in all compilers.
 
-  version 1.0.9 (2020-06-29)
+  version 1.0.10 (2021-02-08)
 
-  Last change 2020-08-02
+  Last change 2021-02-08
 
-  ©2015-2020 František Milt
+  ©2015-2021 František Milt
 
   Contacts:
     František Milt: frantisek.milt@gmail.com
@@ -89,7 +89,7 @@ type
   DWord = UInt32;         PDWord = ^DWord;            PPDWord = ^PDWord;
 
 {$IFDEF UInt64_NotNative}
-  UInt64 = Int64;
+  UInt64 = type Int64;
 {$ELSE}
   UInt64 = System.UInt64;
 {$ENDIF}
