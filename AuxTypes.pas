@@ -13,9 +13,9 @@
     Some types (eg. integers of defined size) that are not guaranteed to be
     declared in all compilers.
 
-  version 1.0.10 (2021-02-08)
+  version 1.0.11 (2021-02-20)
 
-  Last change 2021-02-08
+  Last change 2021-02-20
 
   ©2015-2021 František Milt
 
@@ -161,7 +161,7 @@ type
 
 //== Strings ===================================================================
 
-{$IF not declared(UnicodeChar)}  
+{$IF not declared(UnicodeChar)}
   UnicodeChar    = WideChar;
 {$IFEND}
 {$IF not declared(UnicodeString)}
@@ -175,6 +175,37 @@ type
 {$IFEND}
   PUTF8Char  = ^UTF8Char;
   PPUTF8Char = ^PUTF8Char;
+
+{$IF not declared(UTF16Char)}
+  UTF16Char = UnicodeChar;
+{$IFEND}
+{$IF not declared(UTF16String)}
+  UTF16String = UnicodeString;
+{$IFEND}
+  PUTF16Char   = ^UTF16Char;          PPUTF16Char   = ^PUTF16Char;
+  PUTF16String = ^UTF16String;        PPUTF16String = ^PUTF16String;
+
+{
+  WARNING - UCS4String, and therefore also UTF32String, is only an alias for a
+            dynamic array of UCS4Char. This means, among others, following
+            things:
+
+              - first character is at index 0
+              - last character must be explicitly set to 0 (but all functions
+                should be able to process strings that is not conforming to
+                this as long as they work with full string, not pointer to
+                first character)
+              - last character (terminating zero) is at index Length - 1
+              - last character that is part of the string is at index Lenth - 2
+}
+{$IF not declared(UTF32Char)}
+  UTF32Char = UCS4Char;
+{$IFEND}
+{$IF not declared(UTF32String)}
+  UTF32String = UCS4String;
+{$IFEND}
+  PUTF32Char   = ^UTF32Char;          PPUTF32Char   = ^PUTF32Char;
+  PUTF32String = ^UTF32String;        PPUTF32String = ^PUTF32String;
 
 {$IFNDEF Included}
 implementation
