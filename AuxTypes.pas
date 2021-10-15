@@ -13,9 +13,9 @@
     Some types (eg. integers of defined size) that are not guaranteed to be
     declared in all compilers.
 
-  version 1.0.11 (2021-02-20)
+  version 1.0.12 (2021-10-15)
 
-  Last change 2021-02-20
+  Last change 2021-10-15
 
   ©2015-2021 František Milt
 
@@ -56,6 +56,28 @@ const
   NativeUInt64 = {$IFDEF UInt64_NotNative}False{$ELSE}True{$ENDIF};
 
 type
+//== Bools =====================================================================
+
+{$IF SizeOf(ByteBool) <> 1}
+  {$MESSAGE FATAL 'Wrong size of 8bit bool'}
+{$IFEND}
+  Bool8 = ByteBool;     PBool8 = ^Bool8;      PPBool8 = ^PBool8;
+
+{$IF SizeOf(WordBool) <> 2}
+  {$MESSAGE FATAL 'Wrong size of 16bit bool'}
+{$IFEND}
+  Bool16 = WordBool;    PBool16 = ^Bool16;    PPBool16 = ^PBool16;
+
+{$IF SizeOf(LongBool) <> 4}
+  {$MESSAGE FATAL 'Wrong size of 32bit bool'}
+{$IFEND}
+  Bool32 = LongBool;    PBool32 = ^Bool32;    PPBool32 = ^PBool32;
+
+{
+  AFAIK there is no universal 64 bits wide boolean type available in most,
+  if not all, compilers.
+}
+
 //== Integers ==================================================================
 
 {$IF (SizeOf(ShortInt) <> 1) or (SizeOf(Byte) <> 1)}
@@ -192,7 +214,7 @@ type
 
               - first character is at index 0
               - last character must be explicitly set to 0 (but all functions
-                should be able to process strings that is not conforming to
+                should be able to process strings that are not conforming to
                 this as long as they work with full string, not pointer to
                 first character)
               - last character (terminating zero) is at index Length - 1
