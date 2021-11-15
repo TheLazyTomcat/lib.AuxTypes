@@ -13,9 +13,9 @@
     Some types (eg. integers of defined size) that are not guaranteed to be
     declared in all compilers.
 
-  version 1.0.12 (2021-10-15)
+  version 1.0.13 (2021-11-15)
 
-  Last change 2021-10-15
+  Last change 2021-11-15
 
   ©2015-2021 František Milt
 
@@ -145,11 +145,16 @@ type
   PPtrInt  = ^PtrInt;     PPPtrInt  = ^PPtrInt;
   PPtrUInt = ^PtrUInt;    PPPtrUInt = ^PPtrUInt;
 
-  TStrSize = Int32;       PStrSize = ^TStrSize;       PPStrSize = ^PStrSize;
-  TMemSize = PtrUInt;     PMemSize = ^TMemSize;       PPMemSize = ^PMemSize;
+  TStrSize   = Int32;       PStrSize   = ^TStrSize;       PPStrSize   = ^PStrSize;
+  TStrOffset = Int32;       PStrOffset = ^TStrOffset;     PPStrOffset = ^PStrOffset;
+  TStrOff    = TStrOffset;  PStrOff    = ^TStrOff;        PPStrOff    = ^PStrOff;
+  
+  TMemSize   = PtrUInt;     PMemSize   = ^TMemSize;       PPMemSize   = ^PMemSize;
+  TMemOffset = PtrInt;      PMemOffset = ^TMemOffset;     PPMemOffset = ^PMemOffset;
+  TMemOff    = TMemOffset;  PMemOff    = ^TMemOff;        PPMemOff    = ^PMemOff;
 
-  NativeInt  = PtrInt;    PNativeInt  = ^NativeInt;   PPNativeInt  = ^PNativeInt;
-  NativeUInt = PtrUInt;   PNativeUInt = ^NativeUInt;  PPNativeUInt = ^PNativeUInt;
+  NativeInt  = PtrInt;      PNativeInt  = ^NativeInt;     PPNativeInt  = ^PNativeInt;
+  NativeUInt = PtrUInt;     PNativeUInt = ^NativeUInt;    PPNativeUInt = ^PNativeUInt;
 
 //== Floats ====================================================================
 
