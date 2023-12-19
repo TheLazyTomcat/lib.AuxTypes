@@ -12,9 +12,9 @@
     Some types (eg. integers of defined size) that are not guaranteed to be
     declared in all compilers.
 
-  version 1.1.1 (2023-08-11)
+  version 1.1.2 (2023-12-19)
 
-  Last change 2023-08-11
+  Last change 2023-12-19
 
   ©2015-2023 František Milt
 
@@ -219,11 +219,13 @@ type
 
 //== Strings ===================================================================
 
+{$UNDEF DeclaringUnicodeString}
 {$IF not Declared(UnicodeChar)}
   UnicodeChar    = WideChar;
 {$IFEND}
 {$IF not Declared(UnicodeString)}
   UnicodeString  = WideString;
+  {$DEFINE DeclaringUnicodeString}
 {$IFEND}
   PUnicodeChar   = ^UnicodeChar;      PPUnicodeChar   = ^PUnicodeChar;
   PUnicodeString = ^UnicodeString;    PPUnicodeString = ^PUnicodeString;
@@ -264,6 +266,9 @@ type
 {$IFEND}
   PUTF32Char   = ^UTF32Char;          PPUTF32Char   = ^PUTF32Char;
   PUTF32String = ^UTF32String;        PPUTF32String = ^PUTF32String;
+
+const
+  UnicodeIsWide = {$IFDEF DeclaringUnicodeString}True{$ELSE}False{$ENDIF};
 
 implementation
 
