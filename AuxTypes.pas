@@ -63,9 +63,24 @@ const // the const is here for FPC (don't ask, it is... complicated)
 {$ELSE}
   {$MESSAGE FATAL 'Wrong size of type Extended'}
 {$IFEND}
-  NativeBool64  =  {$IFDEF Bool64_NotNative}False{$ELSE}True{$ENDIF};
-  NativeUInt64  =  {$IFDEF UInt64_NotNative}False{$ELSE}True{$ENDIF};
-  NativeFloat80 = {$IFDEF Float80_NotNative}False{$ELSE}True{$ENDIF};
+
+  NativeBool64  = {$IFDEF Bool64_NotNative}False{$ELSE}True{$ENDIF};
+  NativeBool64N = {$IFDEF Bool64_NotNative}0{$ELSE}1{$ENDIF};
+{$IFNDEF Bool64_NotNative}
+  NativeBool64E = True;
+{$ENDIF}
+
+  NativeUInt64  = {$IFDEF UInt64_NotNative}False{$ELSE}True{$ENDIF};
+  NativeUInt64N = {$IFDEF UInt64_NotNative}0{$ELSE}1{$ENDIF};
+{$IFNDEF UInt64_NotNative}
+  NativeUInt64E =  True;
+{$ENDIF}
+
+  NativeFloat80  = {$IFDEF Float80_NotNative}False{$ELSE}True{$ENDIF};
+  NativeFloat80N = {$IFDEF Float80_NotNative}0{$ELSE}1{$ENDIF};
+{$IFNDEF Float80_NotNative}
+  NativeFloat80E = True;
+{$ENDIF}
 
 type
 //== Bools =====================================================================
@@ -269,6 +284,10 @@ type
 
 const
   UnicodeIsWide = {$IFDEF DeclaringUnicodeString}True{$ELSE}False{$ENDIF};
+  UnicodeIsWideN = {$IFDEF DeclaringUnicodeString}1{$ELSE}0{$ENDIF};
+{$IFDEF DeclaringUnicodeString}
+  UnicodeIsWideE = True;
+{$ENDIF}
 
 implementation
 
